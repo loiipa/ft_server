@@ -1,14 +1,19 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    cmd_server.sh                                      :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: cjang <cjang@student.42seoul.kr>           +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/04/02 17:44:15 by cjang             #+#    #+#              #
-#    Updated: 2021/04/02 17:44:38 by cjang            ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+#!bin/bash
+input="1"
+until [ $input = "y" -o $input = "Y" -o $input = "n" -o $input = "N" ]
+do
+	echo "autoindex ON? [y/n]"
+	read -n 1 -s input
+done
+
+if [ $input = "y" -o $input = "Y"]
+then
+	echo $input
+	cp /cjang_srcs/default_on /etc/nginx/sites-available/default
+else
+	echo $input
+	cp /cjang_srcs/default_off /etc/nginx/sites-available/default
+fi
 
 service nginx start
 service php7.3-fpm start

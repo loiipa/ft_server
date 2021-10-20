@@ -1,14 +1,4 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    init_server.sh                                     :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: cjang <cjang@student.42seoul.kr>           +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/03/31 17:01:45 by cjang             #+#    #+#              #
-#    Updated: 2021/04/02 16:56:41 by cjang            ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+#!bin/bash
 
 # install phpmyadmin
 wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-all-languages.tar.gz
@@ -27,7 +17,7 @@ rm -rf latest.tar.gz
 chown -R www-data:www-data /var/www/html/wordpress
 
 # copy settings
-cp /cjang_srcs/default /etc/nginx/sites-available/
+# cp /cjang_srcs/default /etc/nginx/sites-available/
 cp /cjang_srcs/phpinfo.php /var/www/html/
 cp /cjang_srcs/wp-config.php /var/www/html/wordpress
 cp /cjang_srcs/config.inc.php /var/www/html/phpmyadmin/
